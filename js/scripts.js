@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function initNavigation() {
   const navLinks = document.querySelectorAll(".nav a");
   const header = document.querySelector(".header");
+  const navToggle = document.getElementById("nav-toggle");
 
-  // Update active link on scroll
   window.addEventListener("scroll", function () {
     const sections = document.querySelectorAll(".section, .parallax");
     let current = "";
@@ -41,6 +41,10 @@ function initNavigation() {
       if (targetElement) {
         const headerHeight = header.offsetHeight;
         const targetPosition = targetElement.offsetTop - headerHeight;
+
+        if (navToggle && window.innerWidth <= 768) {
+          navToggle.checked = false;
+        }
 
         window.scrollTo({
           top: targetPosition,
@@ -113,7 +117,6 @@ function initModernParallax() {
       const parentTop = parent.offsetTop;
       const parentHeight = parent.offsetHeight;
 
-      // Só animar quando o elemento estiver na viewport
       if (
         scrolled > parentTop - window.innerHeight &&
         scrolled < parentTop + parentHeight
@@ -136,18 +139,7 @@ function initModernParallax() {
 
   window.addEventListener("scroll", requestTick);
   window.addEventListener("resize", requestTick);
-
-  // Inicializar posição
   updateParallax();
-}
-
-// Adicione à função init() existente:
-function init() {
-  initNavigation();
-  initSmoothScrolling();
-  initAnimations();
-  initModernParallax();
-  initScrollProgress();
 }
 
 function initScrollProgress() {
@@ -173,7 +165,6 @@ function initScrollProgress() {
   });
 }
 
-// Efeito de digitação para títulos
 function initTypewriterEffect() {
   const titles = document.querySelectorAll("h3");
 
@@ -193,7 +184,6 @@ function initTypewriterEffect() {
   });
 }
 
-// Inicializar quando a página carregar
 window.addEventListener("load", function () {
   initTypewriterEffect();
 });
