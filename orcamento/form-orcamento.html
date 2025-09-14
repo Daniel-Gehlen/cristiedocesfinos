@@ -1,0 +1,165 @@
+<!-- orcamento/form-orcamento.html -->
+<div class="form-orcamento-container">
+  <header>
+    <h1>Solicite seu Orçamento</h1>
+    <p class="description">
+      Preencha os dados abaixo para receber um orçamento personalizado
+    </p>
+    <p class="security-info">Protegido contra spam e conteúdo malicioso</p>
+  </header>
+
+  <form id="budgetForm" action="orcamento/processa-orcamento.php" method="POST">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          minlength="2"
+          maxlength="50"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Telefone/WhatsApp:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"
+          placeholder="(11) 99999-9999"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="eventDate">Data prevista para o evento:</label>
+        <input
+          type="text"
+          id="eventDate"
+          name="eventDate"
+          placeholder="DD/MM/AAAA"
+          pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(20[2-9][0-9])"
+        />
+      </div>
+
+      <div class="form-group full-width">
+        <label>Selecione os produtos de interesse:</label>
+        <div class="product-options">
+          <div class="product-option" data-value="bolos">
+            <div>🎂</div>
+            <div>Bolos</div>
+          </div>
+          <div class="product-option" data-value="doces">
+            <div>🍬</div>
+            <div>Doces Finos</div>
+          </div>
+          <div class="product-option" data-value="tortas">
+            <div>🥧</div>
+            <div>Tortas</div>
+          </div>
+          <div class="product-option" data-value="cupcakes">
+            <div>🧁</div>
+            <div>Cupcakes</div>
+          </div>
+        </div>
+        <input type="hidden" id="products" name="products" />
+      </div>
+
+      <div class="form-group full-width">
+        <label for="guests">Número aproximado de convidados:</label>
+        <select id="guests" name="guests" required>
+          <option value="">Selecione</option>
+          <option value="1-20">1-20 pessoas</option>
+          <option value="21-50">21-50 pessoas</option>
+          <option value="51-100">51-100 pessoas</option>
+          <option value="101+">Mais de 100 pessoas</option>
+        </select>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="budgetRange">Faixa de orçamento pretendida:</label>
+        <select id="budgetRange" name="budgetRange" required>
+          <option value="">Selecione</option>
+          <option value="ate-300">Até R$ 300</option>
+          <option value="300-600">R$ 300 - R$ 600</option>
+          <option value="600-1000">R$ 600 - R$ 1.000</option>
+          <option value="1000+">Acima de R$ 1.000</option>
+        </select>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="details"
+          >Detalhes adicionais (tema, cores, sabores, etc.):</label
+        >
+        <textarea
+          id="details"
+          name="details"
+          maxlength="500"
+          placeholder="Descreva brevemente sua necessidade"
+        ></textarea>
+        <div
+          id="charCount"
+          style="text-align: right; font-size: 0.8rem; color: #6c757d"
+        >
+          0/500 caracteres
+        </div>
+      </div>
+    </div>
+
+    <!-- Campos honeypot (invisíveis para humanos) -->
+    <div class="honeypot">
+      <label for="url">URL</label>
+      <input type="text" id="url" name="url" tabindex="-1" />
+    </div>
+
+    <div class="honeypot">
+      <label for="name2">Nome</label>
+      <input type="text" id="name2" name="name2" tabindex="-1" />
+    </div>
+
+    <!-- CAPTCHA simples com temporizador -->
+    <div class="captcha-container">
+      <div class="captcha-question" id="captchaQuestion">Quanto é 7 + 5?</div>
+      <div class="form-group">
+        <label for="captcha">Resposta:</label>
+        <input type="text" id="captcha" name="captcha" required />
+      </div>
+      <div
+        id="timerMessage"
+        style="font-size: 0.9rem; color: #6c757d; display: none"
+      >
+        Por segurança, aguarde <span id="timer">10</span> segundos antes de
+        enviar
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">
+      Solicitar Orçamento
+    </button>
+
+    <div class="privacy">
+      <p>
+        Ao enviar este formulário, você concorda com nossa
+        <a href="#">Política de Privacidade</a> e autoriza o tratamento dos
+        dados fornecidos para fins de elaboração de orçamento. Seus dados não
+        serão compartilhados com terceiros.
+      </p>
+    </div>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    ✅ Solicitação enviada com sucesso! Retornaremos em até 24 horas.
+  </div>
+
+  <div class="error-message" id="errorMessage">
+    ❌ Por favor, verifique os dados informados e tente novamente.
+  </div>
+</div>

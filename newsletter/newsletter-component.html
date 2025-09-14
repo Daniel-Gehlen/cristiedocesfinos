@@ -1,0 +1,67 @@
+<div class="newsletter-container">
+  <header>
+    <h2>Assine Nossa Newsletter</h2>
+    <p class="newsletter-description">
+      Receba nossas novidades, promoções e receitas especiais!
+    </p>
+    <p class="newsletter-security">
+      Protegido contra spam e conteúdo malicioso
+    </p>
+  </header>
+
+  <form id="newsletterForm" class="newsletter-form">
+    <div class="newsletter-form-grid">
+      <div class="newsletter-form-group">
+        <label for="newsletter-name">Nome:</label>
+        <input
+          type="text"
+          id="newsletter-name"
+          name="name"
+          required
+          minlength="2"
+          maxlength="50"
+        />
+      </div>
+
+      <div class="newsletter-form-group">
+        <label for="newsletter-email">E-mail:</label>
+        <input type="email" id="newsletter-email" name="email" required />
+      </div>
+    </div>
+
+    <div class="newsletter-honeypot">
+      <label for="newsletter-website">Website</label>
+      <input type="text" id="newsletter-website" name="website" tabindex="-1" />
+    </div>
+
+    <div class="newsletter-captcha-container">
+      <div class="newsletter-captcha-question" id="newsletter-captchaQuestion">
+        Quanto é 5 + 3?
+      </div>
+      <div class="newsletter-form-group">
+        <label for="newsletter-captcha">Resposta:</label>
+        <input type="text" id="newsletter-captcha" name="captcha" required />
+      </div>
+    </div>
+
+    <button type="submit" class="newsletter-btn" id="newsletter-submitBtn">
+      Assinar Newsletter
+    </button>
+
+    <div class="newsletter-privacy">
+      <p>
+        Ao assinar, você concorda com nossa
+        <a href="/politica-privacidade">Política de Privacidade</a>. Você pode
+        cancelar sua assinatura a qualquer momento.
+      </p>
+    </div>
+  </form>
+
+  <div class="newsletter-success-message" id="newsletter-successMessage">
+    ✅ Inscrição realizada com sucesso! Em breve você receberá nossas novidades.
+  </div>
+
+  <div class="newsletter-error-message" id="newsletter-errorMessage">
+    ❌ Por favor, verifique os dados informados e tente novamente.
+  </div>
+</div>

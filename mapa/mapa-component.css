@@ -1,0 +1,116 @@
+.mapa-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  min-height: 300px;
+  background: #f8f9fa;
+}
+
+.mapa-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.mapa {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 15px 15px 0 0;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.btn-como-chegar {
+  display: block;
+  background: linear-gradient(135deg, #e84393, #fd79a8);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 15px 15px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-como-chegar:hover {
+  background: linear-gradient(135deg, #fd79a8, #e84393);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.mapa.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+  background: linear-gradient(45deg, #f8f9fa 25%, transparent 25%),
+    linear-gradient(-45deg, #f8f9fa 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f8f9fa 75%),
+    linear-gradient(-45deg, transparent 75%, #f8f9fa 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.mapa.loading::after {
+  content: "Carregando mapa...";
+  font-size: 16px;
+  color: #e84393;
+  font-weight: 500;
+}
+
+.mapa.loaded {
+  background: transparent;
+}
+
+.mapa-erro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #666;
+  background: #f8f9fa;
+  border-radius: 15px 15px 0 0;
+}
+
+.mapa-erro i {
+  font-size: 48px;
+  color: #e84393;
+  margin-bottom: 15px;
+}
+
+.mapa-erro p {
+  margin: 5px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .mapa-container {
+    margin-top: 30px;
+  }
+
+  .mapa {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapa {
+    height: 220px;
+  }
+
+  .btn-como-chegar {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .mapa-container {
+    margin-top: 25px;
+  }
+}

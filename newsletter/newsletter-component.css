@@ -1,0 +1,158 @@
+.newsletter-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.newsletter-container header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.newsletter-container h2 {
+  color: #e84393;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.newsletter-description {
+  color: #6c757d;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.newsletter-security {
+  font-size: 0.8rem;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.newsletter-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.newsletter-form-group {
+  margin-bottom: 15px;
+}
+
+.newsletter-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.newsletter-form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form-group input:focus {
+  border-color: #e84393;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(232, 67, 147, 0.1);
+}
+
+.newsletter-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.newsletter-captcha-container {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.newsletter-captcha-question {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.newsletter-btn {
+  background: #e84393;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  font-weight: 500;
+}
+
+.newsletter-btn:hover {
+  background: #fd79a8;
+}
+
+.newsletter-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.newsletter-privacy {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #6c757d;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.newsletter-privacy a {
+  color: #e84393;
+  text-decoration: none;
+}
+
+.newsletter-privacy a:hover {
+  text-decoration: underline;
+}
+
+.newsletter-success-message {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+}
+
+.newsletter-error-message {
+  display: none;
+  background: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #f5c6cb;
+}
+
+@media (min-width: 768px) {
+  .newsletter-form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .newsletter-container {
+    padding: 30px;
+  }
+}
